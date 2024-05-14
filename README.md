@@ -1,2 +1,13 @@
 # PUDO_Common
-PUDO Common Class for Modules
+
+## PUDO common class for modules
+
+This is the PUDO common class for modules.
+
+## Installation
+
+You can install this module using composer:
+
+```console
+composer require pudo/pudo-common
+```
