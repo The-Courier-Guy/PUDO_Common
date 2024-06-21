@@ -4,30 +4,38 @@ namespace Pudo\Common\Processor;
 
 class APIProcessor
 {
-    public const  API_URL_BASE = 'https://a3mkbgy3r7.execute-api.af-south-1.amazonaws.com/';
+    private string $apiUrlBase;
 
     public const API_METHODS = [
         'get_all_lockers' => [
             'type'     => 'GET',
-            'endpoint' => 'api/v1/lockers-data',
+            'endpoint' => '/api/v1/lockers-data',
         ],
         'get_rates'       => [
             'type'     => 'POST',
-            'endpoint' => 'api/v1/rates'
+            'endpoint' => '/api/v1/rates'
         ],
         'booking_request' => [
             'type'     => 'POST',
-            'endpoint' => 'api/v1/shipments'
+            'endpoint' => '/api/v1/shipments'
         ],
         'get_waybill'     => [
             'type'     => 'GET',
-            'endpoint' => 'generate/waybill'
+            'endpoint' => '/generate/waybill'
         ],
         'locker_rates'    => [
             'type'     => 'GET',
-            'endpoint' => 'api/v1/locker-rates'
+            'endpoint' => '/api/v1/locker-rates'
         ],
     ];
+
+    /**
+     * @param string $apiUrlBase
+     */
+    public function __construct(string $apiUrlBase)
+    {
+        $this->apiUrlBase = $apiUrlBase;
+    }
 
     /**
      * @param $getLockersResponse
@@ -48,13 +56,12 @@ class APIProcessor
     /**
      * @param $method
      * @param $content
-     * @param $testMode
      *
      * @return array
      */
-    public function getRequest($method, $content, $testMode = false): array
+    public function getRequest($method, $content): array
     {
-        $url  = self::API_URL_BASE . self::API_METHODS[$method]['endpoint'];
+        $url  = $this->apiUrlBase . self::API_METHODS[$method]['endpoint'];
         $type = self::API_METHODS[$method]['type'];
 
         if ($type === 'GET' && $content) {
