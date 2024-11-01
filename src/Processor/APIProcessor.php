@@ -13,7 +13,7 @@ class APIProcessor
         ],
         'get_rates'       => [
             'type'     => 'POST',
-            'endpoint' => '/api/v1/rates'
+            'endpoint' => '/api/v1/locker-rates-new'
         ],
         'booking_request' => [
             'type'     => 'POST',
@@ -23,9 +23,9 @@ class APIProcessor
             'type'     => 'GET',
             'endpoint' => '/generate/waybill'
         ],
-        'locker_rates'    => [
-            'type'     => 'GET',
-            'endpoint' => '/api/v1/locker-rates'
+        'checkout_rates'  => [
+            'type'     => 'POST',
+            'endpoint' => '/api/v1/locker-rates-new'
         ],
     ];
 
