@@ -27,6 +27,10 @@ class APIProcessor
             'type'     => 'POST',
             'endpoint' => '/api/v1/locker-rates-new'
         ],
+        'get_label'     => [
+            'type'     => 'GET',
+            'endpoint' => '/generate/sticker'
+        ],
     ];
 
     /**
