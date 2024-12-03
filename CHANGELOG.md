@@ -1,5 +1,11 @@
 # Changelog
 
+## [[v0.5.0]](https://github.com/The-Courier-Guy/PUDO_Common/releases/tag/v0.5.0)
+
+### Added
+
+- Introduce new Shipping Service Class.
+
 ## [[v0.4.0]](https://github.com/The-Courier-Guy/PUDO_Common/releases/tag/v0.4.0)
 
 ### Added
