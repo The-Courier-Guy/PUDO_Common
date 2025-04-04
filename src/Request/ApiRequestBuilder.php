@@ -6,10 +6,10 @@ use stdClass;
 
 class ApiRequestBuilder
 {
-    private array $shippingDetails;
+    private array  $shippingDetails;
     private string $method;
-    private array $collectionDetails;
-    private array $parcels;
+    private array  $collectionDetails;
+    private array  $parcels;
 
     /**
      * @param array $shippingDetails
@@ -89,6 +89,7 @@ class ApiRequestBuilder
             }
             $deliveryAddress->terminal_id = $pudoLockerDestination;
         } else {
+            $company                          = $this->shippingDetails['company'] ?? null;
             $deliveryAddress->type            = 'residential';
             $deliveryAddress->street_address  = $this->shippingDetails['street_address'];
             $deliveryAddress->city            = $this->shippingDetails['city'];
@@ -96,8 +97,10 @@ class ApiRequestBuilder
             $deliveryAddress->code            = $this->shippingDetails['code'];
             $deliveryAddress->zone            = $this->shippingDetails['zone'];
             $deliveryAddress->country         = $this->shippingDetails['country'];
-            $deliveryAddress->entered_address = "$deliveryAddress->street_address, $deliveryAddress->city,
-             $deliveryAddress->code";
+            $deliveryAddress->entered_address = "$deliveryAddress->street_address, $deliveryAddress->city, $deliveryAddress->code";
+            if ($company) {
+                $deliveryAddress->company = $company;
+            }
         }
 
         return $deliveryAddress;
@@ -119,13 +122,16 @@ class ApiRequestBuilder
             }
             $collectionAddress->terminal_id = $pudoLockerOrigin;
         } else {
+            $company                            = $this->collectionDetails['company'] ?? null;
             $collectionAddress->type            = 'residential';
             $collectionAddress->street_address  = $this->collectionDetails['street_address'];
             $collectionAddress->local_area      = $this->collectionDetails['local_area'];
             $collectionAddress->city            = $this->collectionDetails['city'];
             $collectionAddress->code            = $this->collectionDetails['code'];
-            $collectionAddress->entered_address = "$collectionAddress->street_address, $collectionAddress->city,
-             $collectionAddress->code";
+            $collectionAddress->entered_address = "{$collectionAddress->street_address}, {$collectionAddress->city}, {$collectionAddress->code}";
+            if ($company) {
+                $collectionAddress->company = $company;
+            }
         }
 
         return $collectionAddress;
