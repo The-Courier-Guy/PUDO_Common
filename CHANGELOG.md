@@ -1,5 +1,11 @@
 # Changelog
 
+## [[v0.5.1]](https://github.com/The-Courier-Guy/PUDO_Common/releases/tag/v0.5.1)
+
+### Fixed
+
+- Issue where company name was not being sent.
+
 ## [[v0.5.0]](https://github.com/The-Courier-Guy/PUDO_Common/releases/tag/v0.5.0)
 
 ### Added
