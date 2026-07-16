@@ -1,5 +1,19 @@
 # Changelog
 
+## [[v0.5.2]](https://github.com/The-Courier-Guy/PUDO_Common/releases/tag/v0.5.2)
+
+### Added
+
+- Additional TCG Locker parcel type rate options for P2P, P2L, P2K, P2D, K2P, D2P, and L2P service codes across supported size variants.
+
+### Changed
+
+- Renamed existing PUDO locker rate option labels to TCG Locker branding for consistent display.
+
+### Fixed
+
+- Parcel types not showing correctly in shipping rate options.
+
 ## [[v0.5.1]](https://github.com/The-Courier-Guy/PUDO_Common/releases/tag/v0.5.1)
 
 ### Fixed
